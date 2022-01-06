@@ -38,6 +38,11 @@ const UserSchema = new Schema({
         required: false,
         default: 0
     },    
+    debt:{
+        type: Number,
+        required: false,
+        default: 0
+    },    
     pending:{
         type: Number,
         required: false,
