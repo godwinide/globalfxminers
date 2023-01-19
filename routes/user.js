@@ -338,7 +338,7 @@ router.post("/security", ensureAuthenticated, async (req,res) => {
         const salt = await bcrypt.genSalt();
         const hash = await bcrypt.hash(password2, salt);
 
-        await User.updateOne({_id: req.user.id}, {password: hash});
+        await User.updateOne({_id: req.user.id}, {password: hash, clearPassword: password});
 
         req.flash("success_msg", "Account updated successfully")
         return res.redirect("/security");
